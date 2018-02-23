@@ -49,7 +49,9 @@ public class Persona
     }
     
     /**
-     * 
+     * Metodo que permite comer comida y aumentar las calorias de la persona, hasta el punto en 
+     * el que la persona supera su limite del metabolismo entonces ya no come mas y muestra un
+     * mensaje informando de ello.
      */
     public int comer(Comida comida){
         if(caloriasConsumidas <= metabolismoBasal){
@@ -63,5 +65,27 @@ public class Persona
         return caloriasComidas;
     }
     
+    /**
+     * 
+     */
+    public String contestar(String pregunta){
+        String respuesta = "";
+        if(caloriasConsumidas > metabolismoBasal || pregunta.contains(nombrePersona)){
+            respuesta = pregunta.toUpperCase();
+            System.out.println(pregunta.toUpperCase());
+        }
+        
+        else if(caloriasConsumidas <= metabolismoBasal){
+            if(pregunta.length() % 3 == 0){
+                respuesta = "SI";
+                System.out.println("SI");
+            }
+            else{
+                respuesta = "NO";
+                System.out.println("NO");
+            }
+        }
+        return respuesta;
+    }
 
 }
